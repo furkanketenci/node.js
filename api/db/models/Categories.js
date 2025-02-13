@@ -1,13 +1,16 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const schema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
     isActive: {
         type: Boolean,
         default: true
     },
     createdBy: {
         type: mongoose.SchemaTypes.ObjectId,
-        required: true
     },
 
 }, {
@@ -16,13 +19,9 @@ const schema = mongoose.Schema({
         createdAt: "created_at",
         updatedAt: "updated_at"
     }
-}
-)
+});
 
-class Categories extends mongoose.Model {
-
-}
-
+class Categories extends mongoose.Model { }
 
 schema.loadClass(Categories);
-module.exports = mongoose.model("categories", schema)
+export default mongoose.model("categories", schema);
