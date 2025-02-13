@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const schema = mongoose.Schema({
     roleName: {
@@ -11,7 +11,6 @@ const schema = mongoose.Schema({
     },
     createdBy: {
         type: mongoose.SchemaTypes.ObjectId,
-        required: true
     },
 
 }, {
@@ -23,10 +22,8 @@ const schema = mongoose.Schema({
 }
 )
 
-class Roles extends mongoose.Model {
-
-}
+class Roles extends mongoose.Model { }
 
 
 schema.loadClass(Roles);
-module.exports = mongoose.model("roles", schema)
+export default mongoose.model("roles", schema)
